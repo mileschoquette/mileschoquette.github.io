@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Engineering Work | Miles Choquette</title>
+  <meta name="description" content="Engineering projects by Miles Choquette: ASHRAE RTS load calculation software and an HVAC job-management dashboard.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="index.html">Miles Choquette</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="finance.html">Finance Work</a>
+      <a href="engineering.html" aria-current="page">Engineering Work</a>
+      <a href="senior-project.html">Senior Project</a>
+      <a class="btn" href="https://drive.google.com/file/d/146LsWLVDyXKTQqNLFplRzVCijI4Rd71R/view" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+  <h1>Engineering Work</h1>
+  <p class="lede">Load calculation software and workflow tooling built for Adicot Engineering.</p>
+  <article class="project">
+    <h2>Adicot Load Calc</h2>
+    <ul class="tags"><li>ASHRAE RTS</li><li>HVAC</li><li>Python</li></ul>
+    <p>This is a custom made HVAC heating and cooling load calculator that runs ASHRAE Handbook-Fundamentals Chapter 18 directly: Radiant Time Series for cooling, steady-state for heating. That puts it in line with commercial tools like Design Master rather than the older CLTD method most legacy in-house spreadsheets still run on, which is less accurate.</p>
+    <p>For each room, the tool builds a full envelope model. Walls, roofs, doors, and glass each get a type carrying its own U-value, mass class, and orientation. RTS then runs that model against real weather-station design data (dry-bulb design temperature, daily range, latitude, clear-sky optical depth) and sweeps a full August day to find the room's actual peak cooling hour instead of assuming a fixed one. Heating uses the outdoor 99% design dry-bulb with no solar or thermal-mass credit. That is a deliberate choice: worst-case sizing.</p>
+    <p>Ventilation follows the ASHRAE 62.1 Ventilation Rate Procedure, V<sub>bz</sub> = R<sub>p</sub> &times; P<sub>z</sub> + R<sub>a</sub> &times; A<sub>z</sub>, meaning a people-based rate times occupant count plus an area-based rate times floor area. Every room gets one, and those numbers roll up into a building-wide air balance check that compares total outdoor air against total exhaust and flags pressurization problems, like a kitchen exhaust fan pulling more air out than the system supplies. Supply airflow per room comes from the sensible heat formula, CFM = Sensible Btu/h &divide; (1.1 &times; Supply &Delta;T). Rooms then group into zones for per-AHU and per-RTU equipment sizing, since a zone peaks at an hour that may match neither any individual room nor the building as a whole.</p>
+    <p>From there the tool turns into a duct design surface. You draw supply and return runs on the scaled floor plan, and it auto-sizes trunks as rectangular duct and branches as flex with round collars at the takeoffs, all to the required CFM. It places diffusers and equipment, then exports a duct and diffuser schedule, an air-handling equipment table, and a DXF back into the drawing set. Those are the same deliverables an engineer would otherwise assemble by hand across three separate programs for load, duct sizing, and drafting.</p>
+    <div class="gallery">
+      <a href="assets/img/engineering-work-1.png" target="_blank"><img src="assets/img/engineering-work-1.png" alt="Adicot Load Calc start screen with plans PDF and types JSON drop zones" loading="lazy"></a>
+      <a href="assets/img/engineering-work-2.png" target="_blank"><img src="assets/img/engineering-work-2.png" alt="Duct design surface drawn over a scaled floor plan" loading="lazy"></a>
+    </div>
+    <div class="links"><a class="btn" href="https://github.com/mileschoquette/hvac-load-calc" target="_blank" rel="noopener">View code</a><a class="btn ghost" href="https://drive.google.com/file/d/1VFeD6eDWkNVl-1t7YhZSSoFzVdA-9-0_/view" target="_blank" rel="noopener">Example output: cooling &amp; heating loads (PDF)</a></div>
+  </article>
+  <article class="project">
+    <h2>Adicot Engineering Employee Dashboard</h2>
+    <ul class="tags"><li>Workflow automation</li><li>QuickBooks</li><li>Design Master</li></ul>
+    <p>The HVAC Loads PDF Pipeline is a standalone job-management system built around Design Master. Every project starts as a work order: a structured intake form covering job number, title, project address, city, state, zip, county, property owner, and client name, company, and email, plus the full project specs. You can fill it in yourself or hit "Save &amp; Send to Client," which sends a link for the client to complete the remaining fields and sign electronically. That signed work order becomes the system of record. From there the dashboard tracks each job through six stages, Unset, Needs Work, Ready to Submit, Waiting on Client, Expired, and Invoiced, with per-job notes and filtering on top, so a glance tells you what is stuck and why, down to the level of "waiting on Gary's approval for submittal."</p>
+    <p>Generate DM Setup is the next step and the biggest time saver in the system. Standing up a project in Design Master normally means hand-entering everything the work order already holds: project and client information, the location and its design conditions, and every spec the job was scoped with. That is hours of pure transcription per job, and every keystroke is a chance to typo something. The setup generator builds the Design Master setup straight from the work order entries instead, so the engineer opens a populated project rather than an empty one and spends their time on the parts that need judgment. It also comes out consistent job to job, because the setup has one source instead of whoever happened to key it in that week.</p>
+    <p>Once the calc is run and the Design Master HTML export is parsed back in, the rest of the job unlocks: PDF for the load report, Duct Sizing, Charts, Specs, Equipment selection, Quality Check, and Invoice. Each tab is gated behind real parsed data, so nothing downstream runs on incomplete input, and a separate "Run a Temp Job" path handles one-off calculations that do not need the full pipeline. The Invoice tab bills from the job's own data, meaning the parsed scope, the equipment selected, and the deliverables actually completed, and the dashboard's top-level QuickBooks link carries that through to real bookkeeping. Nobody re-keys project details into a separate billing tool, so a job moves from Needs Work to Invoiced without anyone entering the same client and scope information twice.</p>
+    <div class="gallery">
+      <a href="assets/img/engineering-work-3.png" target="_blank"><img src="assets/img/engineering-work-3.png" alt="Jobs dashboard listing projects by stage, with client details masked" loading="lazy"></a>
+      <a href="assets/img/engineering-work-4.png" target="_blank"><img src="assets/img/engineering-work-4.png" alt="Work order intake form, with client details masked" loading="lazy"></a>
+    </div>
+  </article>
+  </div>
+</main>
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 Miles Choquette</span>
+    <a href="https://github.com/mileschoquette" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://drive.google.com/file/d/146LsWLVDyXKTQqNLFplRzVCijI4Rd71R/view" target="_blank" rel="noopener">Resume</a>
+  </div>
+</footer>
+</body>
+</html>
