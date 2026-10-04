@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Miles Choquette</title>
+  <title>Miles Choquette | Quantitative Research</title>
   <meta name="description" content="Miles Choquette: MS Quantitative Finance candidate at Northeastern. Quantitative research, trading strategies, and engineering projects.">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
     <a class="brand" href="index.html">Miles Choquette</a>
     <nav>
       <a href="index.html" aria-current="page">Home</a>
-      <a href="finance.html">Finance Work</a>
+      <a href="finance.html">Research</a>
       <a href="engineering.html">Engineering Work</a>
       <a href="senior-project.html">Senior Project</a>
       <a class="btn" href="https://drive.google.com/file/d/146LsWLVDyXKTQqNLFplRzVCijI4Rd71R/view" target="_blank" rel="noopener">Resume</a>
@@ -24,17 +24,13 @@
   <div class="wrap">
   <section class="hero">
     <h1>Miles Choquette</h1>
+    <p class="tagline">Quantitative research &middot; Credit &amp; fixed income &middot; Systematic strategies</p>
     <ul class="creds">
       <li>MS Quantitative Finance, Northeastern University (Dec 2026)</li>
       <li>BS Computer Science, Minor in AI, Florida Atlantic University</li>
       <li>Software Engineer &amp; Junior Designer, Adicot Engineering</li>
     </ul>
-  </section>
-  <section class="bio">
-    <p>I'm Miles, an MS in Quantitative Finance student at Northeastern University graduating in December 2026, with a strong foundation in both finance and computer science. I currently work as a Software Engineer and Junior Designer at Adicot Engineering, where I build the firm's in-house HVAC load calculation and job-management software. Previously, I was a Junior Analyst at the 360 Huntington Fund, where I managed quantitative analysis for a ~$2M portfolio across 46 positions.</p>
-    <p>My work centers on uncovering market inefficiencies through systematic, data-driven approaches. Recently, I tested whether Polymarket's earnings-beat markets carry information that a firm's own beat history misses, built a framework that compares rate, spread, default, recovery, and prepayment sensitivities across seven credit instruments, and developed a Treasury ETF rotation strategy driven by Nelson-Siegel and Diebold-Li yield-curve signals. I combine rigorous quantitative analysis with practical implementation, building tested, reproducible pipelines that take a research question from raw data to a defensible conclusion.</p>
-    <p>With a computer science background from FAU and prior experience at Draper Laboratory developing analytical systems, I bring strong technical skills to financial problem-solving. I'm particularly interested in quantitative trading, derivatives markets, and building systematic strategies that exploit structural market inefficiencies.</p>
-    <p>I'm actively seeking opportunities in quantitative research and trading where I can apply my analytical skills and passion for markets to generate alpha through disciplined, systematic approaches.</p>
+    <p class="seeking">Seeking quantitative research and trading roles.</p>
   </section>
   <div class="actions">
     <a class="btn" href="https://drive.google.com/file/d/146LsWLVDyXKTQqNLFplRzVCijI4Rd71R/view" target="_blank" rel="noopener">View resume</a>
@@ -42,11 +38,32 @@
     <a class="btn ghost" href="https://www.linkedin.com/in/miles-choquette-372b52296" target="_blank" rel="noopener">LinkedIn</a>
     <a class="btn ghost" href="mailto:mileschoquette@gmail.com">Email</a>
   </div>
-  <h2>Work</h2>
+  <h2>Selected research</h2>
+  <table class="research">
+    <thead><tr><th>Project</th><th>Methods</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td><a href="finance.html#polymarket">Polymarket Earnings Signal</a></td><td>Calibration, encompassing regression, event study, block bootstrap</td><td>Brier 0.149 vs. 0.185 baseline on 1,231 contracts; trading edge not significant after clustering</td></tr>
+      <tr><td><a href="finance.html#credit-greeks">Greeks Across Credit Instruments</a></td><td>Survival discounting, hazard rates, bump-and-reprice</td><td>6 Greeks &times; 7 instruments; mortgage gamma &minus;0.52 vs. fixed bond +0.01</td></tr>
+      <tr><td><a href="finance.html#ns-dl">Treasury ETF Rotation</a></td><td>Nelson-Siegel, Diebold-Li, VAR(1)</td><td>Sharpe 0.392 (top-3) vs. 0.290 equal weight</td></tr>
+      <tr><td><a href="finance.html#qpm">Return &amp; Volatility Dynamics</a></td><td>Fama-French factors, GARCH</td><td>Fat tails, negative skew, and volatility clustering across indices and industries</td></tr>
+      <tr><td><a href="finance.html#equity">Equity Research</a></td><td>Fundamental analysis, 360 Huntington Fund</td><td>Buy recommendations on Waystar (WAY) and JFrog (FROG)</td></tr>
+    </tbody>
+  </table>
+  <h2>Toolkit</h2>
+  <dl class="toolkit">
+    <dt>Methods</dt><dd>Factor models, GARCH, yield-curve modeling (Nelson-Siegel, Diebold-Li, VAR), survival and hazard-rate pricing, calibration and encompassing tests, bootstrap and permutation inference</dd>
+    <dt>Tools</dt><dd>Python, pandas, NumPy, SciPy, matplotlib, Jupyter, Git</dd>
+  </dl>
+  <section class="bio">
+    <h2>About</h2>
+    <p>I'm Miles, an MS in Quantitative Finance student at Northeastern University graduating in December 2026, with a strong foundation in both finance and computer science. I currently work as a Software Engineer and Junior Designer at Adicot Engineering, where I build the firm's in-house HVAC load calculation and job-management software. Previously, I was a Junior Analyst at the 360 Huntington Fund, where I managed quantitative analysis for a ~$2M portfolio across 46 positions.</p>
+    <p>My work centers on uncovering market inefficiencies through systematic, data-driven approaches. Recently, I tested whether Polymarket's earnings-beat markets carry information that a firm's own beat history misses, built a framework that compares rate, spread, default, recovery, and prepayment sensitivities across seven credit instruments, and developed a Treasury ETF rotation strategy driven by Nelson-Siegel and Diebold-Li yield-curve signals. I combine rigorous quantitative analysis with practical implementation, building tested, reproducible pipelines that take a research question from raw data to a defensible conclusion.</p>
+    <p>With a computer science background from FAU and prior experience at Draper Laboratory developing analytical systems, I bring strong technical skills to financial problem-solving. I'm particularly interested in quantitative trading, derivatives markets, and building systematic strategies that exploit structural market inefficiencies.</p>
+  </section>
+  <h2>Software &amp; engineering</h2>
   <div class="grid">
-    <a class="tile" href="finance.html"><strong>Finance Work</strong><span>Credit risk Greeks, prediction-market signals, yield-curve rotation, factor and volatility modeling, and Huntington Fund equity pitches.</span></a>
     <a class="tile" href="engineering.html"><strong>Engineering Work</strong><span>ASHRAE load-calculation software and a job-management dashboard built for Adicot Engineering.</span></a>
-    <a class="tile" href="senior-project.html"><strong>Senior Project</strong><span>Bluetooth indoor positioning for accessible navigation in stadiums and large venues.</span></a>
+    <a class="tile" href="senior-project.html"><strong>Senior Project</strong><span>Bluetooth indoor positioning with multilateration and Kalman filtering for accessible venue navigation.</span></a>
   </div>
   </div>
 </main>

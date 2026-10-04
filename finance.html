@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Finance Work | Miles Choquette</title>
+  <title>Research | Miles Choquette</title>
   <meta name="description" content="Quantitative finance projects by Miles Choquette: credit risk, prediction markets, fixed income, factor and volatility modeling, and equity research.">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +13,7 @@
     <a class="brand" href="index.html">Miles Choquette</a>
     <nav>
       <a href="index.html">Home</a>
-      <a href="finance.html" aria-current="page">Finance Work</a>
+      <a href="finance.html" aria-current="page">Research</a>
       <a href="engineering.html">Engineering Work</a>
       <a href="senior-project.html">Senior Project</a>
       <a class="btn" href="https://drive.google.com/file/d/146LsWLVDyXKTQqNLFplRzVCijI4Rd71R/view" target="_blank" rel="noopener">Resume</a>
@@ -22,11 +22,12 @@
 </header>
 <main>
   <div class="wrap">
-  <h1>Finance Work</h1>
+  <h1>Research</h1>
   <p class="lede">Quantitative research, systematic strategies, and equity research from the 360 Huntington Fund.</p>
-  <article class="project">
+  <article class="project" id="credit-greeks">
     <h2>Comparing Greeks Across Credit Instruments<span class="new">New</span></h2>
     <ul class="tags"><li>Credit risk</li><li>Fixed income</li><li>Python</li></ul>
+    <p class="metrics">7 instruments &middot; 6 risk factors &middot; rate DV01 per 100: floater &minus;0.0002, fixed bond &minus;0.0435</p>
     <p>Built one survival-discounting framework that prices seven credit instruments side by side: an amortizing auto loan, a prepayable mortgage, a floating-rate term loan, a revolver, a fixed-rate bond, a CDS, and a callable bond. Each instrument is bumped and repriced to produce a common vector of Greeks, covering rate, spread, hazard rate, recovery, prepayment, and rate gamma, all per 100 dollars of notional.</p>
     <p>Implemented in Python with a single generic bump-and-reprice engine and a sanity-check suite that asserts known results, such as the CDS par spread matching h(1 &minus; &rho;) and the floater carrying near-zero rate duration.</p>
     <h3>Key findings</h3>
@@ -43,9 +44,10 @@
     </div>
     <div class="links"><a class="btn" href="https://github.com/mileschoquette/credit-instrument-greeks" target="_blank" rel="noopener">View code and notebook</a></div>
   </article>
-  <article class="project">
+  <article class="project" id="polymarket">
     <h2>Polymarket Earnings Signal</h2>
     <ul class="tags"><li>Prediction markets</li><li>Event study</li><li>Python</li></ul>
+    <p class="metrics">n = 1,231 contracts &middot; Brier 0.149 vs. 0.185 &middot; encompassing coef. 5.78, p &lt; 10<sup>&minus;35</sup></p>
     <p>Tested whether Polymarket's recurring "Will [company] beat quarterly earnings?" markets carry information about earnings surprises beyond a firm's own historical beat rate, using 1,231 resolved contracts across roughly 415 tickers. The design builds a no-look-ahead, firm-specific baseline, then runs calibration tests, an encompassing regression, an event study, and a backtested trading strategy with clustering-robust inference.</p>
     <h3>Key findings</h3>
     <ul>
@@ -56,9 +58,10 @@
     </ul>
     <div class="links"><a class="btn" href="https://github.com/mileschoquette/polymarket-earnings-signal" target="_blank" rel="noopener">View code and paper</a></div>
   </article>
-  <article class="project">
+  <article class="project" id="qpm">
     <h2>Quantitative Portfolio Management</h2>
     <ul class="tags"><li>Factor models</li><li>GARCH</li><li>Python</li></ul>
+    <p class="metrics">Fama-French factor regressions &middot; GARCH variants &middot; index and industry portfolios</p>
     <p>Built a quantitative framework to analyze return distributions, factor exposures, and volatility dynamics across market indices and industry portfolios.</p>
     <p>Modeled returns using Fama-French factors and estimated volatility with GARCH variants to understand how risk evolves over time. The results show clear evidence of fat tails, volatility clustering, and time-varying risk, highlighting where standard normal assumptions break down in real markets.</p>
     <p>Implemented the full pipeline in Python, including data processing, regression modeling, volatility estimation, and visualization.</p>
@@ -76,9 +79,10 @@
     </div>
     <div class="links"><a class="btn" href="https://github.com/mileschoquette/Empirical-Asset-Pricing-and-Volatility-Analysis" target="_blank" rel="noopener">View full code and models</a></div>
   </article>
-  <article class="project">
+  <article class="project" id="ns-dl">
     <h2>Nelson-Siegel / Diebold-Li Treasury ETF Rotation Strategy</h2>
     <ul class="tags"><li>Yield curve</li><li>VAR</li><li>Python</li></ul>
+    <p class="metrics">Top-3: CAGR 3.84%, Sharpe 0.392, MaxDD &minus;26.55% &middot; Equal weight: CAGR 2.37%, Sharpe 0.290</p>
     <p>Built a systematic fixed income strategy to rotate across Treasury ETFs using yield curve mispricing and directional forecasting signals.</p>
     <p>Modeled the yield curve using Nelson-Siegel to identify mispricings at each maturity, then applied Diebold-Li dynamic factor forecasting via VAR(1) to predict where the curve's level, slope, and curvature are heading. The two signals are blended monthly to shift allocation toward ETFs that are both currently cheap and directionally favorable.</p>
     <p>Implemented the full pipeline in Python, including yield curve fitting, expanding-window VAR estimation, signal construction, portfolio rebalancing, and performance benchmarking against AGG.</p>
@@ -97,9 +101,10 @@
     <div class="links"><a class="btn" href="https://github.com/mileschoquette/Nelson-Siegel-Diebold-Li-Treasury-ETF-Rotation-Strategy" target="_blank" rel="noopener">View full code and models</a></div>
   </article>
   <h2 class="section-label">360 Huntington Fund</h2>
-  <article class="project">
+  <article class="project" id="equity">
     <h2>Waystar Holdings Pitch</h2>
     <ul class="tags"><li>Equity research</li><li>Buy</li></ul>
+    <p class="metrics">FY2024: 67% gross margin &middot; 19% revenue growth &middot; $173M FCF</p>
     <p>This investment presentation delivers a Buy recommendation on Waystar Holdings Corp., a cloud-based leader in healthcare revenue cycle management (RCM) software.</p>
     <p>The analysis highlights Waystar's strong SaaS economics (67% gross margins), 19% revenue growth, improving profitability, and $173M in free cash flow in FY2024.</p>
     <p>Key growth drivers include AI-powered automation, regulatory tailwinds, strategic M&amp;A opportunities, and expansion within a $15&ndash;20B RCM market growing 10&ndash;12% annually.</p>
@@ -109,6 +114,7 @@
   <article class="project">
     <h2>JFrog (FROG) Investment Pitch</h2>
     <ul class="tags"><li>Equity research</li><li>Buy</li></ul>
+    <p class="metrics">FY2025: 83.3% non-GAAP gross margin &middot; $142M FCF &middot; 42% cloud growth</p>
     <p>This investment presentation delivers a Buy recommendation on JFrog Ltd., a DevOps software company providing a universal software supply chain platform for enterprise development and security teams.</p>
     <p>The analysis highlights JFrog's mission-critical platform entrenchment (Artifactory serves as the system of record for binary artifact management across 6,600+ enterprise customers) combined with 83.3% non-GAAP gross margins and $142M in free cash flow in FY2025.</p>
     <p>Key growth drivers include 42% YoY cloud revenue growth, a regulatory tailwind from software supply chain security mandates, the $230M Qwak AI acquisition positioning JFrog in the $89B MLOps market, and an installed base conversion opportunity as self-managed customers migrate to higher-value SaaS deployments.</p>
