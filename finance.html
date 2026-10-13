@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Research | Miles Choquette</title>
-  <meta name="description" content="Quantitative finance projects by Miles Choquette: credit risk, prediction markets, fixed income, factor and volatility modeling, and equity research.">
+  <meta name="description" content="Quantitative finance projects by Miles Choquette: credit risk, prediction markets, fixed income, and equity research.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -57,27 +57,6 @@
       <li>A volatility-targeted strategy beats benchmarks in-sample, but permutation, block-bootstrap, and Jobson-Korkie tests cannot separate the edge from noise once same-day clustering cuts the sample to about 181 independent dates</li>
     </ul>
     <div class="links"><a class="btn" href="https://github.com/mileschoquette/polymarket-earnings-signal" target="_blank" rel="noopener">View code and paper</a></div>
-  </article>
-  <article class="project" id="qpm">
-    <h2>Quantitative Portfolio Management</h2>
-    <ul class="tags"><li>Factor models</li><li>GARCH</li><li>Python</li></ul>
-    <p class="metrics">Fama-French factor regressions &middot; GARCH variants &middot; index and industry portfolios</p>
-    <p>Built a quantitative framework to analyze return distributions, factor exposures, and volatility dynamics across market indices and industry portfolios.</p>
-    <p>Modeled returns using Fama-French factors and estimated volatility with GARCH variants to understand how risk evolves over time. The results show clear evidence of fat tails, volatility clustering, and time-varying risk, highlighting where standard normal assumptions break down in real markets.</p>
-    <p>Implemented the full pipeline in Python, including data processing, regression modeling, volatility estimation, and visualization.</p>
-    <h3>Key findings</h3>
-    <ul>
-      <li>Returns show <strong>fat tails and negative skew</strong>, meaning downside risk is underestimated</li>
-      <li>Volatility is <strong>clustered</strong>, not constant, which supports GARCH modeling</li>
-      <li>Factor exposure explains most return variation across industries</li>
-      <li>Normal distributions <strong>underestimate extreme moves</strong></li>
-    </ul>
-    <div class="gallery">
-      <a href="assets/img/finance-work-1.png" target="_blank"><img src="assets/img/finance-work-1.png" alt="Histograms, KDEs, and Q-Q plots of index returns" loading="lazy"></a>
-      <a href="assets/img/finance-work-2.png" target="_blank"><img src="assets/img/finance-work-2.png" alt="Close-to-close versus Parkinson historical volatility" loading="lazy"></a>
-      <a href="assets/img/finance-work-3.png" target="_blank"><img src="assets/img/finance-work-3.png" alt="Empirical distributions of industry portfolio excess returns" loading="lazy"></a>
-    </div>
-    <div class="links"><a class="btn" href="https://github.com/mileschoquette/Empirical-Asset-Pricing-and-Volatility-Analysis" target="_blank" rel="noopener">View full code and models</a></div>
   </article>
   <article class="project" id="ns-dl">
     <h2>Nelson-Siegel / Diebold-Li Treasury ETF Rotation Strategy</h2>
